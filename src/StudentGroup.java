@@ -28,6 +28,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudents() {
 		// Add your implementation here
+		//Correct
 		return students;
 	}
 
@@ -42,6 +43,7 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student getStudent(int index) {
+		// Add your implementation here
 		if(index < 0 || index >= students.length) throw new IllegalArgumentException();
 		else return students[index];
 	}
@@ -50,147 +52,87 @@ public class StudentGroup implements StudentArrayOperation {
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
 		if(index < 0 || index >= students.length) throw new IllegalArgumentException();
-		else{
-			students[index]=student;
+		else {
+			students[index] = student;
 		}
 	}
-
+	
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
+		//Still to be Reviewed
 		if (student == null ) throw new IllegalArgumentException();
 		else {
 			ArrayList <Student>al = new ArrayList<Student>();
 			al = (ArrayList<Student>) Arrays.asList(students);
 			al.add(0, student);
-			al.trimToSize();
-			students=null;
+			students = null;
 			students = (Student[]) al.toArray();
+			
+			/*
+			Student []st = new Student[students.length+1];
+			st[0] = student;
+			for(int i=1;i<st.length;i++) {
+				st[i] = students[i-1];
+			}
+			students  = null;
+			Student []students = new Student[st.length];
+			for(int i=0;i<st.length;i++) {
+				students[i] = st[i];
+			}*/
 		}
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		//Still to be Reviewed
 		if (student == null ) throw new IllegalArgumentException();
 		else {
 			ArrayList <Student>al = new ArrayList<Student>();
 			al = (ArrayList<Student>) Arrays.asList(students);
 			al.add(students.length, student);
-			al.trimToSize();
+			students = null;
 			students = (Student[]) al.toArray();
 		}
+		
 	}
 
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
-		if (student == null ) throw new IllegalArgumentException();
-		else {
-			ArrayList <Student>al = new ArrayList<Student>();
-			al = (ArrayList<Student>) Arrays.asList(students);
-			al.add(index, student);
-			al.trimToSize();
-			students = (Student[]) al.toArray();
-		}
+		
+		
 	}
 
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
-		if (students == null ) throw new IllegalArgumentException();
-		else {
-			ArrayList <Student>al = new ArrayList<Student>();
-			al = (ArrayList<Student>) Arrays.asList(students);
-			al.remove(index);	
-			al.trimToSize();
-			students = (Student[]) al.toArray();
-		}
 	}
 
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
-		if (students == null ) throw new IllegalArgumentException();
-		else {
-			ArrayList <Student>al = new ArrayList<Student>();
-			al = (ArrayList<Student>) Arrays.asList(students);
-			al.remove(student);	
-			al.trimToSize();
-			students = (Student[]) al.toArray();
-		}
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
 		// Add your implementation here
-		if (students == null ) throw new IllegalArgumentException();
-		else {
-			ArrayList <Student>al = new ArrayList<Student>();
-			al = (ArrayList<Student>) Arrays.asList(students);
-			for(int i=index+1;i<al.size();i++){
-				al.remove(i);
-			}
-			al.trimToSize();
-			students = (Student[]) al.toArray();
-		}
 	}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
-		int index;
-		if (students == null ) throw new IllegalArgumentException();
-		else {
-			ArrayList <Student>al = new ArrayList<Student>();
-			al = (ArrayList<Student>) Arrays.asList(students);
-			if(al.contains(student)){
-				 index=al.indexOf(student);
-			}else{
-				throw new NullPointerException();
-			}
-			for(int i=index+1;i<al.size();i++){
-				al.remove(i);
-			}
-			al.trimToSize();
-			students = (Student[]) al.toArray();
-	      }
 	}
 
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
-		if (students == null ) throw new IllegalArgumentException();
-		else {
-			ArrayList <Student>al = new ArrayList<Student>();
-			al = (ArrayList<Student>) Arrays.asList(students);
-			for(int i=0;i<index;i++){
-				al.remove(i);
-			}
-			al.trimToSize();
-			students = (Student[]) al.toArray();
-		}
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
-		int index;
-		if (students == null ) throw new IllegalArgumentException();
-		else {
-			ArrayList <Student>al = new ArrayList<Student>();
-			al = (ArrayList<Student>) Arrays.asList(students);
-			if(al.contains(student)){
-				 index=al.indexOf(student);
-			}else{
-				throw new NullPointerException();
-			}
-			for(int i=0;i<index;i++){
-				al.remove(i);
-			}
-			al.trimToSize();
-			students = (Student[]) al.toArray();
-	      }
 	}
 
 	@Override
@@ -218,6 +160,7 @@ public class StudentGroup implements StudentArrayOperation {
 			}
 			return ts;
 		}
+		
 	}
 
 	@Override
@@ -241,11 +184,18 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
+		/*Student st[] = new Student[students.length];
+		int count=0;
+		for(int i=0;i<students.length;i++) if(students[i].getBirthDate()getClass().getAge() == age) {
+			st[count] = students[i];
+			count++;
+		}*/
 		return null;
 	}
 
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
+		// Add your implementation here
 		double d = 0;
 		for(int i=0;i<students.length;i++) {
 			
@@ -267,14 +217,13 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student getNextStudent(Student student) {
+		//Correct
 		// Add your implementation here
 		if (student == null) throw new IllegalArgumentException();
 		else
 		for(int i=0;i<students.length;i++) {
-			if(student.getId() == students[i].getId())
-				return students[i+1];
+			if(student.getId() == students[i].getId()) return students[i+1];
 		}
-		return student;
+		return null;
 	}
 }
-
