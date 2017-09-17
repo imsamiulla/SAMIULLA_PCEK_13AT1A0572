@@ -64,6 +64,7 @@ public class StudentGroup implements StudentArrayOperation {
 			al = (ArrayList<Student>) Arrays.asList(students);
 			al.add(0, student);
 			al.trimToSize();
+			students=null;
 			students = (Student[]) al.toArray();
 		}
 	}
