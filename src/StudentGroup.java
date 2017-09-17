@@ -63,7 +63,7 @@ public class StudentGroup implements StudentArrayOperation {
 			ArrayList <Student>al = new ArrayList<Student>();
 			al = (ArrayList<Student>) Arrays.asList(students);
 			al.add(0, student);
-			students = null;
+			al.trimToSize();
 			students = (Student[]) al.toArray();
 		}
 	}
@@ -75,7 +75,8 @@ public class StudentGroup implements StudentArrayOperation {
 		else {
 			ArrayList <Student>al = new ArrayList<Student>();
 			al = (ArrayList<Student>) Arrays.asList(students);
-			al.add(students.length, student);			
+			al.add(students.length, student);
+			al.trimToSize();
 			students = (Student[]) al.toArray();
 		}
 	}
@@ -87,7 +88,8 @@ public class StudentGroup implements StudentArrayOperation {
 		else {
 			ArrayList <Student>al = new ArrayList<Student>();
 			al = (ArrayList<Student>) Arrays.asList(students);
-			al.add(index, student);			
+			al.add(index, student);
+			al.trimToSize();
 			students = (Student[]) al.toArray();
 		}
 	}
@@ -99,7 +101,8 @@ public class StudentGroup implements StudentArrayOperation {
 		else {
 			ArrayList <Student>al = new ArrayList<Student>();
 			al = (ArrayList<Student>) Arrays.asList(students);
-			al.remove(index);			
+			al.remove(index);	
+			al.trimToSize();
 			students = (Student[]) al.toArray();
 		}
 	}
@@ -111,7 +114,8 @@ public class StudentGroup implements StudentArrayOperation {
 		else {
 			ArrayList <Student>al = new ArrayList<Student>();
 			al = (ArrayList<Student>) Arrays.asList(students);
-			al.remove(student);			
+			al.remove(student);	
+			al.trimToSize();
 			students = (Student[]) al.toArray();
 		}
 	}
@@ -126,6 +130,7 @@ public class StudentGroup implements StudentArrayOperation {
 			for(int i=index+1;i<al.size();i++){
 				al.remove(i);
 			}
+			al.trimToSize();
 			students = (Student[]) al.toArray();
 		}
 	}
@@ -146,6 +151,7 @@ public class StudentGroup implements StudentArrayOperation {
 			for(int i=index+1;i<al.size();i++){
 				al.remove(i);
 			}
+			al.trimToSize();
 			students = (Student[]) al.toArray();
 	      }
 	}
@@ -160,6 +166,7 @@ public class StudentGroup implements StudentArrayOperation {
 			for(int i=0;i<index;i++){
 				al.remove(i);
 			}
+			al.trimToSize();
 			students = (Student[]) al.toArray();
 		}
 	}
@@ -180,6 +187,7 @@ public class StudentGroup implements StudentArrayOperation {
 			for(int i=0;i<index;i++){
 				al.remove(i);
 			}
+			al.trimToSize();
 			students = (Student[]) al.toArray();
 	      }
 	}
